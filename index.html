@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Zona Total Animados - Dibujos y películas para niños</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">
+                <h1>ZONA TOTAL</h1>
+                <span class="logo-subtitle">ANIMADOS</span>
+            </div>
+            
+            <!-- CATEGORÍAS (SOLO PC) -->
+            <nav class="categories-nav" id="categoriesNav">
+                <button class="category-btn active" data-category="todas">Todas</button>
+                <button class="category-btn" data-category="disney">Disney</button>
+                <button class="category-btn" data-category="dreamworks">DreamWorks</button>
+                <button class="category-btn" data-category="clasicos">Clásicos</button>
+                <button class="category-btn" data-category="aventura">Aventura</button>
+                <button class="category-btn" data-category="comedia">Comedia</button>
+                <button class="category-btn" data-category="educativos">Educativos</button>
+            </nav>
+            
+            <div class="header-buttons">
+                <a href="https://merencioreyna-sudo.github.io/zona-total-peliculas/" class="home-btn" target="_self">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- SUBTÍTULO -->
+        <div class="hero-subtitle-outside">
+            <p class="hero-subtitle">🎈 Dibujos animados · Películas para niños · Aventuras mágicas 🎈</p>
+        </div>
+
+
+        <!-- CATEGORÍAS PRINCIPALES -->
+        <div class="categorias-principales">
+            <button class="cat-principal-btn active" data-cat="disney">Disney</button>
+            <button class="cat-principal-btn" data-cat="cartoon">Cartoon</button>
+            <button class="cat-principal-btn" data-cat="anime">Anime</button>
+            <button class="cat-principal-btn" data-cat="marvel">Marvel</button>
+        </div>
+
+        <!-- SUBCATEGORÍAS (se despliegan debajo) -->
+        <div id="subcategorias-container" class="subcategorias-container" style="display: none;">
+            <!-- Aquí aparecerán los botones de subcategorías -->
+        </div>
+
+        
+<!-- SECCIÓN DESTACADOS -->
+        <section class="destacados-section">
+            <div class="destacados-header">
+                <h2><i class="fas fa-star"></i> Destacados</h2>
+                <div class="destacados-controls">
+                    <button class="destacados-prev" id="destacadosPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="destacados-next" id="destacadosNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="destacados-carousel" id="destacadosCarousel">
+                <div class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i> Cargando destacados...
+                </div>
+            </div>
+        </section>
+
+        <!-- GRILLA DE ANIMADOS -->
+        <section class="animados-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Todos los animados</h2>
+                <span class="animados-counter" id="animadosCounter">🎬 0 animados</span>
+            </div>
+            <div class="animados-grid" id="animadosGrid">
+                <div class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i> Cargando animados...
+                </div>
+            </div>
+        </section>
+
+        <!-- MENÚ MÓVIL -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">ZONA TOTAL</div>
+                <button class="close-menu" id="closeMenu">&times;</button>
+            </div>
+            <nav class="mobile-categories">
+                <button class="mobile-category-btn active" data-category="todas">Todas</button>
+                <button class="mobile-category-btn" data-category="disney">Disney</button>
+                <button class="mobile-category-btn" data-category="dreamworks">DreamWorks</button>
+                <button class="mobile-category-btn" data-category="clasicos">Clásicos</button>
+                <button class="mobile-category-btn" data-category="aventura">Aventura</button>
+                <button class="mobile-category-btn" data-category="comedia">Comedia</button>
+                <button class="mobile-category-btn" data-category="educativos">Educativos</button>
+            </nav>
+            <div class="mobile-footer">
+                <a href="https://merencioreyna-sudo.github.io/zona-total-peliculas/" class="mobile-home-btn">
+                    <i class="fas fa-home"></i> Ir al Inicio
+                </a>
+            </div>
+        </div>
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- MODAL DE ANIMADO -->
+        <div class="modal-overlay" id="animadoModal">
+            <div class="modal-container">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <div class="modal-player-area">
+                    
+<div class="player-wrapper">
+    <iframe 
+        id="videoIframe" 
+        src="" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+<div id="animadosRelacionados"></div>
+                </div>
+                <div class="modal-info-area">
+                    <h2 id="modalTitulo">Título</h2>
+                    <p id="modalSinopsis">Sinopsis</p>
+                    <div class="modal-detalles">
+                        <span><i class="fas fa-globe"></i> <span id="modalIdioma">Idioma</span></span>
+                        <span><i class="fas fa-calendar"></i> <span id="modalAnio">Año</span></span>
+                        <span><i class="fas fa-tag"></i> <span id="modalCategoria">Categoría</span></span>
+                        <span><i class="fas fa-list"></i> <span id="modalTotalCaps">0 capítulos</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL ADMIN (ANTES DEL FOOTER) -->
+        <div class="admin-modal-overlay" id="adminModalOverlay">
+            <div class="admin-modal">
+                <button class="admin-cerrar" id="adminCerrar">&times;</button>
+                <h2>🔐 ADMIN</h2>
+                <div id="adminLoginPanel">
+                    <input type="password" id="adminPassword" placeholder="Contraseña">
+                    <button id="adminLoginBtn">Acceder</button>
+                </div>
+                <div id="adminGestionPanel" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>ZONA TOTAL</h3>
+                    <p>Dibujos y películas para niños</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:anelistrabajo@gmail.com">📧 Soporte: anelistrabajo@gmail.com</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Zona Total Animados. Todos los derechos reservados.</p>
+                </div>
+                <button class="admin-btn" id="adminBtn">
+                    <i class="fas fa-lock"></i> ADMIN
+                </button>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>
