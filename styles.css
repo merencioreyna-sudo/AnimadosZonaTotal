@@ -44,15 +44,16 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding: 12px 25px;
+    padding: 12px 24px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 60px;
+    border-radius: 0;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-sm);
     margin-bottom: 24px;
+    width: 100%;
 }
 
 .logo h1 {
@@ -66,10 +67,11 @@ body {
 }
 
 .logo-subtitle {
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--accent-orange);
-    margin-left: 6px;
+    margin-left: 8px;
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 /* ===== CATEGORÍAS (PC) ===== */
@@ -366,11 +368,12 @@ body {
 /* ===== FOOTER ===== */
 .footer {
     margin-top: 60px;
-    padding: 10px 10px;
-    background: white;
-    border-radius: 30px;
+    padding: 12px 24px;
+    background: #ffffff;
+    border-radius: 0;
     box-shadow: var(--shadow-sm);
-    text-align: center;
+    text-align: left;
+    width: 100%;
 }
 
 .footer-content {
@@ -419,7 +422,7 @@ body {
     font-size: 0.85rem;
     width: auto;
     display: inline-block;
-    margin-top: 10px;
+    margin: 0;
 }
 
 .admin-btn:hover {
@@ -869,9 +872,7 @@ body {
         border-top: 3px solid var(--accent-orange);
     }
 
-    .footer-content {
-        flex-direction: column; 
-    }
+    
 }
 
 .destacados-header h2,
@@ -974,6 +975,16 @@ body {
     margin: 5px;
     vertical-align: top;
     cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(135deg, #ff9800, #ff5722, #e91e63) border-box;
+    transition: all 0.3s ease;
+}
+
+.rel-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.6);
 }
 
 .rel-card img {
@@ -986,4 +997,215 @@ body {
     .rel-card {
         width: 145px; /* 👈 más ancho SOLO móvil */
     }
+}
+
+.app-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    margin-top: 60px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.footer-copyright p {
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-logo {
+    text-align: left;
+}
+
+.admin-btn {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    width: auto;
+    margin: 0;
+}
+
+.admin-btn:hover {
+    background: var(--accent-orange);
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .footer-logo {
+        text-align: left;
+    }
+    
+    .admin-btn {
+        width: auto;
+        margin: 0 16px 0 0;
+    }
+}
+
+
+.footer-content,
+.footer-logo,
+.footer-links,
+.footer-copyright,
+.footer-bottom {
+    background: #ffffff;
+}
+
+.app-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.hero-subtitle-outside,
+.categorias-principales,
+.subcategorias-container,
+.destacados-section,
+.animados-section {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .footer-logo h3 {
+        margin-left: 16px;
+    }
+}
+
+@media (min-width: 769px) {
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .footer-logo {
+        flex: 0 0 auto;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        white-space: nowrap;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .admin-btn {
+        flex: 0 0 auto;
+    }
+
+    .footer {
+        padding: 8px 20px;
+    }
+}
+
+.logo-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff9800, #ff5722, #e91e63);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 👇 para que no se deforme dentro del header */
+.logo .logo-circle {
+    transform: scale(1.05);
+}
+
+@media (min-width: 769px) {
+
+    .footer-top-mobile {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* 👈 espacio entre logo y admin */
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .animados-grid {
+        grid-template-columns: repeat(2, 1fr); /* 👈 FUERZA 2 columnas */
+        gap: 16px;
+    }
+
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+    .animados-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .animado-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
 }
