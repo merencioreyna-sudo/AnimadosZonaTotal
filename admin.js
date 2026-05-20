@@ -89,8 +89,16 @@ function renderizarPanelGestion() {
             <form id="formAgregarAnimado">
                 <input type="text" id="nuevoId" placeholder="ID (ej: 1, 2, 3...)" required>
                 <input type="text" id="nuevoTitulo" placeholder="Título" required>
-                <input type="text" id="nuevoCategoria" placeholder="Categoría (disney, cartoon, anime, marvel)" required>
-                <input type="text" id="nuevoSubcategoria" placeholder="Subcategoría (clásicos_disney, pixar, etc)" required>
+                <select id="nuevoCategoria" required>
+    <option value="">Selecciona categoría</option>
+    <option value="disney">Disney</option>
+    <option value="marvel">Marvel</option>
+    <option value="clasicos">Clásicos</option>
+    <option value="aventura">Aventura</option>
+    <option value="comedia">Comedia</option>
+    <option value="educativos">Educativos</option>
+</select>
+                
                 <input type="text" id="nuevoAnio" placeholder="Año" required>
                 <input type="url" id="nuevaImagen" placeholder="URL de la imagen" required>
                 <input type="url" id="nuevoEmbedUrl" placeholder="URL del video (embed)" required>
@@ -125,7 +133,7 @@ function renderizarListaAnimadosAdmin() {
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                 <div>
                     <strong style="color: #2196f3;">${animado.Titulo}</strong><br>
-                    <small>${animado.Categoria} · ${animado.Subcategoria} · ${animado.Anio}</small>
+                    <small>${animado.Categoria} · ${animado.Anio}</small>
                 </div>
                 <div style="display: flex; gap: 8px;">
                     <button onclick="editarAnimado('${animado.ID}')" style="background: #4caf50; color: white; padding: 5px 12px; border-radius: 20px; border: none;">✏️ Editar</button>
@@ -152,7 +160,7 @@ async function agregarAnimado(e) {
         ID: document.getElementById('nuevoId').value,
         Titulo: document.getElementById('nuevoTitulo').value,
         Categoria: document.getElementById('nuevoCategoria').value,
-        Subcategoria: document.getElementById('nuevoSubcategoria').value,
+        
         Anio: document.getElementById('nuevoAnio').value,
         Imagen: document.getElementById('nuevaImagen').value,
         EmbedUrl: document.getElementById('nuevoEmbedUrl').value,
@@ -190,7 +198,7 @@ function editarAnimado(id) {
     document.getElementById('nuevoId').value = animado.ID;
     document.getElementById('nuevoTitulo').value = animado.Titulo;
     document.getElementById('nuevoCategoria').value = animado.Categoria;
-    document.getElementById('nuevoSubcategoria').value = animado.Subcategoria;
+    
     document.getElementById('nuevoAnio').value = animado.Anio;
     document.getElementById('nuevaImagen').value = animado.Imagen;
     document.getElementById('nuevoEmbedUrl').value = animado.EmbedUrl;
@@ -214,7 +222,7 @@ console.log('IDs en Sheets:', todosLosAnimadosAdmin.map(a => a.ID));
         ID: id,
         Titulo: document.getElementById('nuevoTitulo').value,
         Categoria: document.getElementById('nuevoCategoria').value,
-        Subcategoria: document.getElementById('nuevoSubcategoria').value,
+        
         Anio: document.getElementById('nuevoAnio').value,
         Imagen: document.getElementById('nuevaImagen').value,
         EmbedUrl: document.getElementById('nuevoEmbedUrl').value,
