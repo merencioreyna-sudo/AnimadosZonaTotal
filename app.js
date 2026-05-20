@@ -38,6 +38,7 @@ async function cargarAnimados() {
         
         if (data.success && data.data) {
             todosLosAnimados = data.data;
+            todosLosAnimados.reverse();
 
             const unicos = [];
 
@@ -81,6 +82,7 @@ function renderizarAnimados(animados) {
 
     animadosGrid.innerHTML = animados.map(animado => `
         <div class="animado-card" data-id="${animado.ID}">
+    ${animados.indexOf(animado) < 4 ? '<div class="reciente-badge">RECIENTE</div>' : ''}
             <div class="animado-imagen">
                 <img src="${animado.Imagen || 'https://via.placeholder.com/300x200?text=Animados'}" alt="${animado.Titulo}">
             </div>
@@ -117,12 +119,19 @@ function filtrarPorCategoria(categoria) {
         case 'disney':
             filtrados = filtrados.filter(a => a.Categoria?.toLowerCase().includes('disney'));
             break;
-        case 'dreamworks':
-            filtrados = filtrados.filter(a => a.Categoria?.toLowerCase().includes('dreamworks'));
-            break;
+        case 'marvel':
+    filtrados = filtrados.filter(a => 
+        (a.Categoria || '').toLowerCase().includes('marvel')
+    );
+    break;
         case 'clasicos':
-            filtrados = filtrados.filter(a => a.Categoria?.toLowerCase().includes('clasico'));
-            break;
+    filtrados = filtrados.filter(a =>
+        (a.Categoria || '').toLowerCase().includes('clásico') ||
+        (a.Categoria || '').toLowerCase().includes('clasico') ||
+        (a.Subcategoria || '').toLowerCase().includes('clásico') ||
+        (a.Subcategoria || '').toLowerCase().includes('clasico')
+    );
+    break;
         case 'aventura':
             filtrados = filtrados.filter(a => a.Categoria?.toLowerCase().includes('aventura'));
             break;
